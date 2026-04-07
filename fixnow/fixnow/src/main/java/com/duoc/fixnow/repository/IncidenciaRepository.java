@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public class IncidenciaRepository {
     public List<Incidencia> listaIncidencias = new ArrayList<>();
-    /*public IncidenciaRepository(){
+    public IncidenciaRepository(){
         listaIncidencias.add(new Incidencia("Titulo","Descripcion","estado","prioridad","Rodolfo","02-12-2025"));
-    }*/
+    }
     // Metodos Get
     public ResponseEntity<?> listarIncidencias() {
         try {

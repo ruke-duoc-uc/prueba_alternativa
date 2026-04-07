@@ -38,7 +38,16 @@ public class IncidenciaController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No se pudo buscar el incidente");
         }
     }
-
+    @GetMapping("/estado/{estado}")
+    public ResponseEntity<?> buscarPorEstado(@PathVariable String estado){
+        try {
+            if (estado == null){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Se debe entregar un id para buscar");}
+            return ResponseEntity.ok(incidenciaService.getByEstado(estado));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No se pudo buscar el incidente");
+        }
+    }
     @PostMapping
     @RequestMapping("/agregarIncidente")
     public ResponseEntity<?> agregarIncidente(@RequestBody Incidencia incidencia){
